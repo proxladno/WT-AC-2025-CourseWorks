@@ -6,62 +6,62 @@
 
 ```mermaid
 erDiagram
-		USER ||--o{ DEVICE : owns
-		DEVICE ||--o{ METRIC : exposes
-		METRIC ||--o{ READING : has
-		READING ||--o| ALERT : may_create
-		USER ||--o{ TICKET : creates
-		DEVICE ||--o{ TICKET : related_to
+    USER ||--o{ DEVICE : owns
+    DEVICE ||--o{ METRIC : exposes
+    METRIC ||--o{ READING : has
+    READING ||--o| ALERT : may_create
+    USER ||--o{ TICKET : creates
+    DEVICE ||--o{ TICKET : related_to
 
-		USER {
-			id int PK
-			username varchar
-			password_hash varchar
-			role varchar
-		}
-		DEVICE {
-			id int PK
-			name varchar
-			description text
-			owner_id int FK
-			type varchar
-		}
-		METRIC {
-			id int PK
-			device_id int FK
-			name varchar
-			unit varchar
-		}
-		READING {
-			id int PK
-			metric_id int FK
-			timestamp datetime
-			value float
-		}
-		ALERT {
-			id int PK
-			metric_id int FK
-			reading_id int FK
-			level varchar
-			status varchar
-			message text
-			created_at datetime
-		}
-		TICKET {
-			id int PK
-			type varchar
-			status varchar
-			requester_id int FK
-			device_id int FK
-		}
+    USER {
+        id int PK
+        username varchar
+        password_hash varchar
+        role varchar
+    }
+    DEVICE {
+        id int PK
+        name varchar
+        description text
+        owner_id int FK
+        type varchar
+    }
+    METRIC {
+        id int PK
+        device_id int FK
+        name varchar
+        unit varchar
+    }
+    READING {
+        id int PK
+        metric_id int FK
+        timestamp datetime
+        value float
+    }
+    ALERT {
+        id int PK
+        metric_id int FK
+        reading_id int FK
+        level varchar
+        status varchar
+        message text
+        created_at datetime
+    }
+    TICKET {
+        id int PK
+        type varchar
+        status varchar
+        requester_id int FK
+        device_id int FK
+    }
 ```
 
 ## ASCII-эскиз
 
 ```
 User 1---* Device 1---* Metric 1---* Reading 0---1 Alert
-			\                              
-			 \-*- Ticket (created by User, may reference Device/Alert)
+    \                              
+     \-*- Ticket (created by User, may reference Device/Alert)
 ```
 
 ## Минимальный SQL DDL (пример, PostgreSQL)

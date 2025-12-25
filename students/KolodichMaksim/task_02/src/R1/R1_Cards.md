@@ -4,7 +4,7 @@
 - email: string, required, must be valid email → ошибка: "Введите корректный email"
 - password: string, required, min 6 символов → ошибка: "Введите пароль не короче 6 символов"
 
-2. Metric (метрика)
+1. Metric (метрика)
 - id: integer (autoincrement)
 - name: string, required → ошибка: "Введите название метрики."
 - unit: string, optional
@@ -12,14 +12,14 @@
 - color: string, optional (HEX)
 - user_id: integer, not editable in UI (назначается сервером)
 
-3. Entry (запись)
+1. Entry (запись)
 - id: integer
 - metric_id: integer, required → ошибка: "Выберите метрику"
 - value: number, required → ошибка: "Введите значение"
 - date: date, required (default: today) → ошибка: "Выберите дату"
 - note: string, optional, max length 500
 
-4. Goal
+1. Goal
 - id: integer
 - metric_id: integer, required
 - target_value: number, required

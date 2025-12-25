@@ -6,27 +6,27 @@
 pip install -r requirements.txt
 ```
 
-2. Copy `.env.example` to `.env` and set `JWT_SECRET_KEY` (Windows):
+1. Copy `.env.example` to `.env` and set `JWT_SECRET_KEY` (Windows):
 
 ```bash
 copy .env.example .env
 ```
 
-3. Initialize database (quick method without migrations):
+1. Initialize database (quick method without migrations):
 
 ```bash
 python init_db.py
 ```
 
-4. Run the app:
+1. Run the app:
 
 ```bash
 python run.py
 ```
 
-5. Open <http://localhost:5000> and register a user.
+1. Open <http://localhost:5000> and register a user.
 
-### Running in Docker
+## Running in Docker
 
 You can run the app in a container using Docker or docker-compose.
 
