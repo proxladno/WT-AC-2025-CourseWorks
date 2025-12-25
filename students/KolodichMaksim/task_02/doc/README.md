@@ -30,13 +30,13 @@
 
 ### Основные сущности
 
-- **Metric** (метрика)  
+- **Metric** (метрика)
   - name, unit, target_value (опционально), color (опционально)
 
-- **Goal** (цель по метрике, опционально)  
+- **Goal** (цель по метрике, опционально)
   - target_value, period (daily/weekly/monthly), start_date, end_date
 
-- **Entry** (запись значения)  
+- **Entry** (запись значения)
   - metric_id, value, date, note (опционально)
 
 ### API (RESTful, префикс `/api/v1`)
