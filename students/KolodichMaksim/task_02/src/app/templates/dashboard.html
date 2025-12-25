@@ -1,6 +1,7 @@
-<!-- htmlhint disable doctype-first -->
 {% extends 'base.html' %}
+
 {% block content %}
+<!-- htmlhint disable doctype-first -->
 <h2>Дашборд</h2>
 <div class="mb-3">
   <button id="show-auth" class="btn btn-outline-secondary btn-sm">Show auth header</button>
@@ -40,7 +41,6 @@ async function api(path, opts={}){
   if(token) opts.headers['Authorization'] = 'Bearer ' + token;
   const res = await fetch('/api/v1'+path, opts);
   if(res.status===401){
-    // show inline message, clear token and redirect to login
     localStorage.removeItem('token');
     alert('Session expired or unauthorized. Please login again.');
     window.location='/login.html';

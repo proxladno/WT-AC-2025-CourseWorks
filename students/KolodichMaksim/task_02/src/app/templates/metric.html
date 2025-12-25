@@ -1,6 +1,7 @@
-<!-- htmlhint disable doctype-first -->
 {% extends 'base.html' %}
+
 {% block content %}
+<!-- htmlhint disable doctype-first -->
 <div class="row">
   <div class="col-md-8">
     <h2 id="metric-name">Метрика</h2>
@@ -56,8 +57,17 @@ async function load(){
 
 document.getElementById('entry-form').addEventListener('submit', async (ev)=>{
   ev.preventDefault();
-  const v = ev.target.value.value; const d = ev.target.date.value || new Date().toISOString().slice(0,10);
-  await api('/entries', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({metric_id: metricId, value: parseFloat(v), date: d})});
+  const v = ev.target.value.value; 
+  const d = ev.target.date.value || new Date().toISOString().slice(0,10);
+  await api('/entries', {
+    method:'POST', 
+    headers:{'Content-Type':'application/json'}, 
+    body: JSON.stringify({
+      metric_id: metricId, 
+      value: parseFloat(v), 
+      date: d
+    })
+  });
   load();
 });
 
